@@ -108,23 +108,18 @@ The diagram above shows the complete data warehouse architecture:
 ### **Initial Load (Full Refresh)**
 
 ```bash
-# Load seed data
 dbt seed
 
-# Build all models from scratch
 dbt run --full-refresh
 
-# Run tests
 dbt test
 ```
 
 ### **Incremental Runs (Production Mode)**
 
 ```bash
-# Only process new events
 dbt run
 
-# Specific model selection
 dbt run -s stg_menu_items+
 ```
 
@@ -231,7 +226,7 @@ The `mart_menu_metrics` table provides restaurant-level KPIs:
 
 1. **Add new events to seed file**
    ```bash
-   # Events automatically picked up on next run
+    Events automatically picked up on next run
    ```
 
 2. **Run incremental models**
@@ -269,29 +264,25 @@ Weekly Schedule (Sunday):
 menu_analytics/
 ├── models/
 │   ├── staging/
-│   │   ├── schema.yml              # Source & model docs
-│   │   └── stg_menu_items.sql      # Flattened items
+│   │   └── stg_menu_items.sql
 │   ├── dimensions/
-│   │   ├── schema.yml
-│   │   └── dim_restaurants.sql     # Restaurant dimension
+│   │   ├── dim_restaurants.yml
+│   │   └── dim_restaurants.sql
 │   ├── intermediate/
-│   │   ├── int_menu_items_with_changes.sql  # Change detection
-│   │   └── int_menu_items_scd2.sql          # SCD2 logic
+│   │   ├── int_menu_items_with_changes.sql
+│   │   └── int_menu_items_scd2.sql
 │   └── marts/
-│       ├── schema.yml
-│       └── mart_menu_metrics.sql   # Business metrics
+│       ├── mart_menu_metrics.yml
+│       └── mart_menu_metrics.sql
+│   ├── schme.yml
 ├── seeds/
-│   ├── raw_menu_events_v4.csv      # Raw menu data
-│   └── dim_restaurants_v3.csv      # Restaurant data
-├── tests/
-│   ├── test_price_metrics_valid.sql
-│   ├── test_completeness_score_range.sql
-│   └── test_category_counts_valid.sql
+│   ├── raw_menu_events_v4.csv
+│   └── dim_restaurants_v3.csv
 ├── diagrams/
-│   └── er_diagram.png              # ER diagram
-├── dbt_project.yml                 # Project config
-├── packages.yml                    # dbt_utils dependency
-└── README.md                       # This file
+│   └── er_diagram.png
+├── dbt_project.yml
+├── packages.yml
+└── README.md
 ```
 
 ---
