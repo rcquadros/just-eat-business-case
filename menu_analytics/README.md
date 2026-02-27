@@ -79,10 +79,10 @@ The diagram above shows the complete data warehouse architecture:
 
 3. **Activate environment**
    ```bash
-   # Windows
+    Windows
    dbt_env\Scripts\activate
    
-   # Mac/Linux
+    Mac/Linux
    source dbt_env/bin/activate
    ```
 
