@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: main
+    description: Raw data loaded via dbt seeds
+    tables:
+      - name: raw_menu_events_v4
+        description: Historical menu events with nested JSON structure
+        columns:
+          - name: event_id
+            description: Unique identifier for each menu event
+          - name: restaurant_id
+            description: Foreign key to restaurant
+          - name: timestamp
+            description: When this menu snapshot was captured
+          - name: menu_json
+            description: Nested JSON containing categories and menu items
+
+      - name: dim_restaurants_v3
+        description: Restaurant dimension data
+        columns:
+          - name: restaurant_id
+            description: Primary key for restaurants
+          - name: country_code
+            description: Country where restaurant operates
+          - name: cuisine_type
+            description: Type of cuisine offered
+          - name: partner_tier
+            description: Partnership tier (Gold, Silver, Bronze)
+          - name: signup_date
+            description: Date when restaurant joined platform
+
+models:
+  - name: stg_menu_items
+    description: Flattened menu items from nested JSON, one row per item per event
+    columns:
+      - name: event_id
+        description: Menu event identifier
+      - name: restaurant_id
+        description: Restaurant identifier
+      - name: event_timestamp
+        description: When this menu state was recorded
+      - name: category_name
+        description: Menu category (e.g., Main Dishes, Sides)
+      - name: item_id
+        description: Menu item identifier
+      - name: item_name
+        description: Name of the menu item
+      - name: price
+        description: Price of the item at this event time
+      - name: description
+        description: Item description (may be null)
+      - name: image_url
+        description: Item image URL (may be null)

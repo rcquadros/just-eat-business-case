@@ -1,0 +1,13 @@
+restaurant_id,country_code,cuisine_type,partner_tier,signup_date
+5001,UK,Burger,Gold,2024-01-15
+5002,NL,Italian,Silver,2024-01-22
+5003,DE,Sushi,Bronze,2024-02-05
+5004,UK,Pizza,Gold,2024-02-12
+5005,NL,French,Silver,2024-03-01
+5006,UK,Asian,Bronze,2024-03-18
+5007,FR,Mexican,Gold,2024-03-25
+5008,DE,Indian,Silver,2024-04-08
+5009,UK,Thai,Bronze,2024-04-15
+5010,NL,Chinese,Gold,2024-04-29
+5011,FR,Greek,Silver,2024-05-06
+5012,DE,Vietnamese,Bronze,2024-05-20

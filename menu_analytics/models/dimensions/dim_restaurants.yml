@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_restaurants
+    description: Restaurant dimension table
+    columns:
+      - name: restaurant_id
+        description: Primary key for restaurants
+        tests:
+          - unique
+          - not_null
+      - name: country_code
+        description: Country whre restaurant operates
+      - name: cuisine_type
+        description: Type of cuisine offered
+      - name: partner_tier
+        description: Partnership tier (Gold, Silver, Bronze)
+      - name: signup_date
+        description: Date when restaurant joined platform

@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: mart_menu_metrics
+    description: Restaurant-level menu metrics and data quality indicators
+    columns:
+      - name: restaurant_id
+        description: Restaurant identifier
+        tests:
+          - unique
+          - not_null
+          
+      - name: menu_size
+        description: Total number of items on current menu
+        tests:
+          - not_null
+          
+      - name: menu_completeness_score
+        description: Percentage of items with both description and image (0-100)
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+
+      - name: avg_price
+        description: Average item price
+        tests:
+          - not_null
