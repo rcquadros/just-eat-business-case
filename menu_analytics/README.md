@@ -171,7 +171,7 @@ I implemented **SCD2** with non-overlapping date ranges:
 Item: Classic Burger (ID 101)
 ├─ 2024-01-22 to 2024-04-28 23:59:59 | Price: £10.13 | is_current: FALSE
 ├─ 2024-04-29 to 2024-06-15 23:59:59 | Price: £10.29 | is_current: FALSE
-└─ 2024-11-27 to NULL              | Price: £9.91  | is_current: TRUE
+└─ 2024-06-16 to NULL              | Price: £9.91  | is_current: TRUE
 ```
 
 ### **Why SCD2 over Daily Snapshots?**
